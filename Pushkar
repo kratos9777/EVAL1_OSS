@@ -1,0 +1,57 @@
+contacts={}
+
+def addcontact():
+
+     name=input("Enter the contact's name:")
+    phonenumber=input("Enter the phone number:")
+    email=input("Enter the email address (optional):")
+    
+    contactinfo={
+        'phone':phonenumber,
+        'email':email
+    }
+    contacts[name]=contactinfo
+    print(f"Contact'{name}'added successfully!")
+
+
+def update():
+        name=input("Enter name of contact to update:")
+    if name in contacts:
+        phonenumber=input("Enter new phone number:")
+        email=input("Enter new email address (optional):")
+        contacts[name]['phone']=phone_number
+        contacts[name]['email']=email
+        print(f"Contact'{name}'updated")
+    else:
+        print(f"Contact'{name}'not found.")
+
+    def remove():
+        
+        name=input("Enter the name of the contact to delete: ")
+    if name in contacts:
+        del contacts[name]
+        print(f"Contact'{name}'deleted successfully!")
+    else:
+        print(f"Contact'{name}'not found.") 
+        
+        
+    def listing():
+    for name, info in contacts.items():
+        print(f"{name}: Phone-{info['phone']}, Email-{info['email']}")
+        
+        
+        def search():    
+    searchterm = input("Enter name or email address to search: ")
+    found = []
+    for name, info in contacts.items():
+        if search.lower() in name.lower() or search.lower() in info['email'].lower():
+            found.append(name)
+
+    if found:
+        print(f"Found contacts matching '{searchterm}':")
+        for name in found:
+            print(f"{name}:Phone-{contacts[name]['phone']},Email-{contacts[name]['email']}")
+    else:
+        print(f"No contacts found for'{searchterm}'")
+            
+            
